@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeSensei</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    
+    .subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .status {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .status-dot.active {
+      background: #4ade80;
+    }
+    
+    .status-dot.inactive {
+      background: #f87171;
+    }
+    
+    .current-problem {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn.primary {
+      background: #4ade80;
+    }
+    
+    .btn.primary:hover {
+      background: #22c55e;
+    }
+    
+    .stats {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+    
+    .settings-link {
+      text-align: center;
+      margin-top: 12px;
+    }
+    
+    .settings-link a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 12px;
+    }
+    
+    .settings-link a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🧠 CodeSensei</div>
+    <div class="subtitle">AI Coding Mentor</div>
+  </div>
+  
+  <div class="status">
+    <div class="status-indicator">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Checking status...</span>
+    </div>
+    <div class="current-problem" id="currentProblem">
+      No active problem detected
+    </div>
+  </div>
+  
+  <div class="actions">
+    <button class="btn primary" id="activateBtn">Activate CodeSensei</button>
+    <button class="btn" id="toggleSidebarBtn">Toggle Sidebar</button>
+    <button class="btn" id="refreshBtn">Refresh Analysis</button>
+  </div>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span>Hints Used Today:</span>
+      <span id="hintsUsed">0</span>
+    </div>
+    <div class="stat-item">
+      <span>Problems Viewed:</span>
+      <span id="problemsViewed">0</span>
+    </div>
+    <div class="stat-item">
+      <span>Debug Sessions:</span>
+      <span id="debugSessions">0</span>
+    </div>
+  </div>
+  
+  <div class="settings-link">
+    <a href="#" id="settingsLink">Settings & Preferences</a>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

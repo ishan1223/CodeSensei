@@ -1,0 +1,367 @@
+/* CodeSensei Sidebar Styles */
+#codesensei-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#codesensei-sidebar.show {
+  transform: translateX(0);
+}
+
+#codesensei-sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.codesensei-header {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.codesensei-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.codesensei-toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.codesensei-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.codesensei-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.codesensei-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 12px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.codesensei-tab:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.codesensei-tab.active {
+  color: white;
+  border-bottom-color: #4ade80;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.codesensei-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.codesensei-loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.codesensei-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.codesensei-error {
+  background: rgba(248, 113, 113, 0.2);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  border-radius: 8px;
+  padding: 12px;
+  color: #fecaca;
+  font-size: 14px;
+}
+
+/* Breakdown Tab Styles */
+.codesensei-breakdown h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.codesensei-category,
+.codesensei-difficulty,
+.codesensei-summary {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.codesensei-category strong,
+.codesensei-difficulty strong,
+.codesensei-summary strong {
+  color: #4ade80;
+}
+
+.codesensei-summary p {
+  margin: 8px 0 0 0;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.codesensei-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.codesensei-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Hints Tab Styles */
+.codesensei-hints h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.codesensei-hints-intro {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.codesensei-hint {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.codesensei-hint.revealed {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.codesensei-hint-header {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.codesensei-hint-number {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.codesensei-reveal-btn {
+  background: #4ade80;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.codesensei-reveal-btn:hover {
+  background: #22c55e;
+}
+
+.codesensei-hint-content {
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.codesensei-hint.hidden .codesensei-hint-content {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* Debug Tab Styles */
+.codesensei-debug h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.codesensei-debug-intro {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+#codesensei-code-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  color: white;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+#codesensei-code-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#codesensei-code-input:focus {
+  outline: none;
+  border-color: #4ade80;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.codesensei-debug-btn {
+  background: #4ade80;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.codesensei-debug-btn:hover:not(:disabled) {
+  background: #22c55e;
+}
+
+.codesensei-debug-btn:disabled {
+  background: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+.codesensei-debug-output {
+  margin-top: 16px;
+}
+
+.codesensei-feedback {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.codesensei-feedback h5 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4ade80;
+}
+
+.codesensei-feedback-content {
+  margin-bottom: 16px;
+}
+
+.codesensei-tip {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.codesensei-example {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.codesensei-example h6 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4ade80;
+}
+
+.codesensei-example p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #codesensei-sidebar {
+    width: 100%;
+    transform: translateX(100%);
+  }
+  
+  #codesensei-sidebar.show {
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar Styling */
+.codesensei-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.codesensei-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.codesensei-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.codesensei-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
